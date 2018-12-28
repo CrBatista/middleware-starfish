@@ -11,13 +11,14 @@
 	</parent>
 
 	<groupId>com.starfish</groupId>
-	<artifactId>starfish</artifactId>
+	<artifactId>middleware-starfish</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>starfish</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Starfish Middleware Project</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<scala.version>2.11.7</scala.version>
 	</properties>
 
 	<dependencies>
@@ -51,7 +52,22 @@
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
-			<version>2.11.7</version>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-report-plugin</artifactId>
+			<version>3.0.0-M3</version>
+			<type>maven-plugin</type>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -64,4 +80,13 @@
 		</plugins>
 	</build>
 
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.0.0-M3</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

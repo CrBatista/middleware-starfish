@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  dbstarfish:
+    ports:
+      - '5432:5432'
+    restart: always
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_USER: starfish
+      POSTGRES_PASSWORD: starfish
+      POSTGRES_DATABASE: starfish
+      PGDATA: /tmp
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
