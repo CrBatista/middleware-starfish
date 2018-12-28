@@ -4,13 +4,17 @@ import com.starfish.starfish.domain.Card;
 import com.starfish.starfish.service.CardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/card")
+@RestController
+@RequestMapping(value = "/cards")
 public class CardController {
 
     private CardService cardService;
@@ -19,13 +23,8 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    @GetMapping("/hello")
-    public String greeting() {
-        return "Hello";
-    }
-
     @GetMapping("/squad/{squadId}")
-    public ResponseEntity<List<Card>> findCardBySquadId(@PathVariable Long squadId) {
-        return new ResponseEntity<>(cardService.findCardsBySquadId(squadId), HttpStatus.ACCEPTED);
+    public ResponseEntity<List<Card>> findCardBySquadId(@PathVariable String squadId) {
+        return new ResponseEntity<>(cardService.findCardsBySquadId(Long.parseLong(squadId)), HttpStatus.ACCEPTED);
     }
 }
