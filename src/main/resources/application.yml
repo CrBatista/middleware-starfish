@@ -2,7 +2,7 @@ spring:
   application:
     name: starfish
   datasource:
-    url: jdbc:postgresql://localhost:5432/starfish
+    url: jdbc:postgresql://127.0.0.1:5432/starfish
     username: starfish
     password: starfish
     driver-class-name: org.postgresql.Driver
