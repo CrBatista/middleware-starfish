@@ -24,7 +24,7 @@ public class CardController {
     }
 
     @GetMapping("/squad/{squadId}")
-    public ResponseEntity<List<Card>> findCardBySquadId(@PathVariable String squadId) {
-        return new ResponseEntity<>(cardService.findCardsBySquadId(Long.parseLong(squadId)), HttpStatus.ACCEPTED);
+    public ResponseEntity<List<Card>> findCardBySquadId(@PathVariable Long squadId) {
+        return new ResponseEntity<>(cardService.findCardsBySquadId(squadId), HttpStatus.ACCEPTED);
     }
 }
