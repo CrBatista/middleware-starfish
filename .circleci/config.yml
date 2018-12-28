@@ -5,10 +5,12 @@ jobs:
     working_directory: ~/middleware-starfish
 
     docker:
-    - image: circleci/postgres:9.6-alpine
+    - image: circleci/openjdk:8-jdk-browsers
+    - image: circleci/postgres:9.6.3-alpine
       environment:
         POSTGRES_USER: starfish
-        POSTGRES_DB: starfish
+        POSTGRES_PASSWORD: starfish
+        POSTGRES_DATABASE: starfish
 
     steps:
 
