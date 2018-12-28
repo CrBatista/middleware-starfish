@@ -21,7 +21,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SF_USER_ID")
     private Long id;
 
     @NotNull

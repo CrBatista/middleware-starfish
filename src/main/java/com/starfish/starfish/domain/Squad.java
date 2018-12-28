@@ -20,7 +20,7 @@ public class Squad {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SF_SQUAD_ID")
     private Long id;
 
     @NotNull

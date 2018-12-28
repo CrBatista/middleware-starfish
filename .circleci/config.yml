@@ -10,26 +10,26 @@ jobs:
       environment:
         POSTGRES_USER: starfish
         POSTGRES_PASSWORD: starfish
-        POSTGRES_DATABASE: starfish
+        POSTGRES_DB: starfish
 
     steps:
 
-    - checkout
+      - checkout
 
-    - restore_cache:
-        key: middleware-starfish-{{ checksum "pom.xml" }}
+      - restore_cache:
+          key: middleware-starfish-{{ checksum "pom.xml" }}
 
-    - run: mvn dependency:go-offline
+      - run: mvn dependency:go-offline
 
-    - save_cache:
-        paths:
-        - ~/.m2
-        key: middleware-starfish-{{ checksum "pom.xml" }}
+      - save_cache:
+          paths:
+          - ~/.m2
+          key: middleware-starfish-{{ checksum "pom.xml" }}
 
-    - run: mvn package
+      - run: mvn package
 
-    - store_test_results:
-        path: target/surefire-reports
+      - store_test_results:
+          path: target/surefire-reports
 
-    - store_artifacts:
-        path: target/middleware-starfish-0.0.1-SNAPSHOT.jar
+      - store_artifacts:
+          path: target/middleware-starfish-0.0.1-SNAPSHOT.jar

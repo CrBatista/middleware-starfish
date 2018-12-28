@@ -17,7 +17,7 @@ public class Card {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SF_CARD_ID")
     private Long id;
 
     @Column(name = "DESCRIPTION", length = 3500)

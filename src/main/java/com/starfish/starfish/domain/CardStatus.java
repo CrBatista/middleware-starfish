@@ -17,7 +17,7 @@ public class CardStatus {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SF_CARD_STATUS_ID")
     private Long id;
 
     @Column(name = "NAME", length = 80)
